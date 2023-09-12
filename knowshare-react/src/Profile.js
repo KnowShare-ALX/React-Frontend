@@ -1,7 +1,13 @@
 // Profile.js
-import React from 'react';
+import React from "react";
 
 function Profile({ user }) {
+  // const user = {
+  //   name: "IK",
+  //   avatar: "AV",
+  //   username: "iykethe1st",
+  //   bio: "P8",
+  // };
   return (
     <div>
       <h2>Profile</h2>

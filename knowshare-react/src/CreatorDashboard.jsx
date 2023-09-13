@@ -1,5 +1,4 @@
 import React from 'react';
-import 'tailwindcss/tailwind.css';
 
 function CreatorDashboard() {
   // Placeholder data (replace with actual data)

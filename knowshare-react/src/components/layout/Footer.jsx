@@ -7,6 +7,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import Heading from "./Atoms/Heading";
+import Nav from "./Atoms/Nav";
 
 const Footer = () => {
   const company = [
@@ -125,12 +126,7 @@ const Footer = () => {
               <Heading label="Quick Links" />
               {company.map((item) => (
                 <h2 key={item.id} className="my-1">
-                  <a
-                    className="hover:text-slate-300 active:text-slate-400"
-                    href={item.link}
-                  >
-                    {item.name}
-                  </a>
+                  <Nav label={item.name} navLink={item.link} />
                 </h2>
               ))}
             </div>
@@ -140,12 +136,7 @@ const Footer = () => {
               <Heading label="Support" />
               {support.map((item) => (
                 <h2 key={item.id} className="my-1">
-                  <a
-                    className="hover:text-slate-300 active:text-slate-400"
-                    href={item.link}
-                  >
-                    {item.name}
-                  </a>
+                  <Nav label={item.name} navLink={item.link} />
                 </h2>
               ))}
             </div>

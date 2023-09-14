@@ -86,12 +86,7 @@ const Navbar = () => {
                 key={nav.id}
                 className="p-3 block text-start border-b-[0.5px] lg:border-0"
               >
-                <a
-                  className="hover:text-slate-800 active:text-black"
-                  href={nav.link}
-                >
-                  {nav.item}
-                </a>
+                <Nav label={nav.item} navLink={nav.link} />
               </li>
             ))}
             <a href="/login">

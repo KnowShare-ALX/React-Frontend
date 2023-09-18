@@ -17,10 +17,95 @@ code {
 }
 
 .hero-image {
-  background-image: url("../public/assets/images/forestBg.jpg");
+  background-image: url("../public/assets/images/yard.jpg");
   background-color: #cccccc;
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* .testimonails__container {
+  overflow-x: hidden;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.testimonial {
+  padding-top: 2rem;
+}
+
+.avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 1rem solid var(--color-bg1);
+}
+
+.testimonial__info {
+  text-align: center;
+}
+
+.testimonial__body {
+  background: var(--color-primary);
+  padding: 2rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.testimonial__body::before {
+  content: "";
+  display: block;
+  background: linear-gradient(
+    135deg,
+    transparent,
+    var(--color-primary),
+    var(--color-primary),
+    var(--color-primary)
+  );
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 50%;
+  top: -1.5rem;
+  transform: rotate(45deg);
+} */
+
+.container {
+  width: var(--container-width-lg);
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 1rem solid var(--color-bg1);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

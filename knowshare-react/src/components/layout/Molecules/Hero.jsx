@@ -1,5 +1,7 @@
 import ButtonSolid from "../Atoms/ButtonSolid";
-
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 const Hero = () => {
   return (
     <div className="hero-image relative flex flex-col md:flex-row justify-around p-4 items-center">
@@ -11,12 +13,8 @@ const Hero = () => {
         <ButtonSolid label="Get Started" />
       </div>
 
-      <div className="rounded p-2 flex gap-2 flex-col justify-center items-center max-w-[20rem] md:min-h-[6rem] md:max-w-[24rem] bg-white shadow-md text-center">
-        <h1 className="font-semibold">
-          Watch captivating videos by industry leaders. Stay updated with the
-          latest tech trends and innovations.
-        </h1>
-        <ButtonSolid label="Explore Now" />
+      <div className="max-w-[40rem]">
+        <img src="assets/images/header.svg" alt="" />
       </div>
     </div>
   );

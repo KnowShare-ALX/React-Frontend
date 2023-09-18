@@ -1,4 +1,3 @@
-// VideoListings.js
 import React, { useState, useEffect } from 'react';
 
 function VideoListings() {
@@ -25,17 +24,19 @@ function VideoListings() {
   }, []);
 
   return (
-    <div>
-      <h2>Video Listings</h2>
+    <div className="bg-white p-4 rounded shadow">
+      <h2 className="text-xl font-semibold mb-4">Video Listings</h2>
       <ul>
         {videos.map((video) => (
-          <li key={video.id}>
-            <h3>{video.title}</h3>
-            <p>{video.description}</p>
-            <video controls width="320" height="180">
-              <source src={video.url} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <li key={video.id} className="mb-4">
+            <h3 className="text-lg font-semibold">{video.title}</h3>
+            <p className="text-gray-600">{video.description}</p>
+            <div className="relative aspect-w-16 aspect-h-9">
+              <video className="rounded-lg" controls width="100%" height="100%">
+                <source src={video.url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </li>
         ))}
       </ul>

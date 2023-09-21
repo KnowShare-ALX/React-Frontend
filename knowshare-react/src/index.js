@@ -7,9 +7,12 @@ import reportWebVitals from "./reportWebVitals";
 import { AppLayout } from "./components/layout";
 import Profile from "./Profile";
 import CreatorDashboard from "./CreatorDashboard";
-import Login from "./Login";
 import Signup from "./Signup";
 import Home from "./Pages/Home";
+import Login from "./Pages/LoginSignup";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./redux/store";
 
 const router = createBrowserRouter([
   {
@@ -38,24 +41,13 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AppLayout>
-      <RouterProvider router={router} />
-
-      {/* <div>
-        <Route path="/" exact>
-          <EarningsHistory earnings={initialEarnings} />
-          <PayoutMethods
-            payoutMethods={payoutMethods}
-            onPayoutMethodAdd={addPayoutMethod}
-          />
-          <VideoPlayer videoUrl={videoUrl} />
-        </Route>
-        <Route path="/profile" component={Profile} />
-        <Route path="/dashboard" component={CreatorDashboard} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-      </div> */}
-    </AppLayout>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AppLayout>
+          <RouterProvider router={router} />
+        </AppLayout>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 

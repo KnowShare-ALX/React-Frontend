@@ -3,12 +3,24 @@ import * as React from "react";
 
 import Nav from "./Atoms/Nav";
 import Logo from "./common/Logo";
-import { HiMenuAlt2 } from "react-icons/hi";
+import { HiMenuAlt2, HiOutlineUserCircle } from "react-icons/hi";
+import { CiUser } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import ButtonSolid from "./Atoms/ButtonSolid";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import AuthService from "../../services/authService";
+import { setUserEmail } from "../../redux/auth";
 
 const Navbar = () => {
+  const { userEmail } = useSelector((state) => {
+    const { userEmail } = state.auth;
+    return { userEmail };
+  }, shallowEqual);
+
+  const dispatch = useDispatch();
+
   const [open, setOpen] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   const navItems = [
     {
@@ -33,30 +45,13 @@ const Navbar = () => {
     },
   ];
 
-  return (
-    // <>
-    //   <div className="flex justify-between items-center h-12 border py-2 w-screen px-4 lg:px-16 shadow-sm">
-    //     <Logo />
-    //     {/* <HiMenuAlt2 className="md:hidden" /> */}
-    //     <HiMenuAlt2
-    //       className={`${
-    //         open ? "rotate-180 delay-150 ring-1" : ""
-    //       }  ring-[#0f7173] transition ease-in-out active:ring-[#0f7173] text-[#0f7173] ring-offset-0 md:hidden block h-6 w-6 cursor-pointer rounded mr-3`}
-    //       onClick={() => setOpen(!open)}
-    //     />
-    //   </div>
-    //   <div
-    //     className={`${
-    //       open ? "flex flex-col items-end" : "hidden"
-    //     } px-4 py-2 transition ease-in-out duration-500  md:flex-row md:items-center text-sm gap-4 md:gap-8 md:flex`}
-    //   >
-    //     {/* <Link>Teach on KnowShare</Link> */}
-    //     <Nav label="Teach on KnowShare" />
-    //     <Nav label="Log In" />
-    //     <Nav label="Sign Up" />
-    //   </div>
-    // </>
+  const handleLogout = async () => {
+    await AuthService.logout();
+    dispatch(setUserEmail(null));
+    // window.location.href = "/";
+  };
 
+  return (
     <div className={`${open ? " " : "shadow"} w-full z-50 `}>
       <div className="flex items-center lg:px-[5rem] p-1 justify-between xl:mx-auto xl:max-w-7xl max-w-full flex-wrap w-full">
         <a href="/">
@@ -89,10 +84,29 @@ const Navbar = () => {
                 <Nav label={nav.item} navLink={nav.link} />
               </li>
             ))}
-            <a href="/login">
-              {" "}
-              <ButtonSolid label="Sign in" />
-            </a>
+            {userEmail ? (
+              <div className="flex flex-col">
+                <div className="p-1 flex flex-col justify-center items-center mx-4 rounded-full border border-black/50 w-8">
+                  <CiUser
+                    onClick={() => setToggle(!toggle)}
+                    className="w-6 h-6 cursor-pointer"
+                  />
+                </div>
+                {toggle && (
+                  <div className="absolute lg:top-10 -bottom-[6rem] pl-1 pr-3 py-2 bg-white transition ease-in-out duration-300 max-w-[10rem]">
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <Nav label="Profile" />
+                      <ButtonSolid onClick={handleLogout} label="Logout" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <a href="/login">
+                {" "}
+                <ButtonSolid label="Sign in" />
+              </a>
+            )}
           </ul>
         </nav>
       </div>

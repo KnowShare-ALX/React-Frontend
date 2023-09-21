@@ -1,171 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Profile Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media User Profile Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css">
+    <!-- Add Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles can be added here */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+        }
+        /* Add your custom CSS here */
+    </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-800">
+<body class="dark:bg-gray-800">
+    <!-- Navigation -->
     <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-2 md:flex md:justify-between md:items-center">
-            <div class="flex items-center justify-between">
-                <div>
-                    <a href="#" class="text-xl font-bold text-gray-800 md:text-2xl">Profile Page</a>
-                </div>
-                <div class="md:hidden">
-                    <button type="button" class="block text-gray-800 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
-                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                            <path class="hidden" fill-rule="evenodd" clip-rule="evenodd" d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"/>
-                            <path class="block" fill-rule="evenodd" clip-rule="evenodd" d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16ZM4 6H20V8H4V6Z" fill="currentColor"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div class="hidden md:flex md:items-center">
-                <a href="#" class="text-gray-800 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                <div class="relative">
-                    <button type="button" class="text-gray-800 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
-                        Features
-                        <svg class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 12L15 7V9H20V11H15V13L10 18L5 13V11H0V9H5V7L10 12Z"/>
-                        </svg>
-                    </button>
-                    <div class="absolute z-10 hidden mt-2 py-2 w-32 bg-white rounded-md shadow-lg">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Skills & Experience</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Education & Certifications</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Portfolio</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Social Media</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contact Me</a>
-                    </div>
-                </div>
-                <a href="#" class="text-gray-800 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Contact Information</a>
-                <button id="dark-mode-toggle" class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Dark Mode</button>
-            </div>
-        </div>
-        <div class="md:hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#" class="text-gray-800 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <div class="relative">
-                    <button type="button" class="text-gray-800 hover:text-gray-700 block w-full text-left px-3 py-2 rounded-md text-base font-medium focus:outline-none">
-                        Features
-                        <svg class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 12L15 7V9H20V11H15V13L10 18L5 13V11H0V9H5V7L10 12Z"/>
-                        </svg>
-                    </button>
-                    <div class="absolute z-10 hidden mt-2 py-2 w-32 bg-white rounded-md shadow-lg">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Skills & Experience</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Education & Certifications</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Portfolio</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Social Media</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Contact Me</a>
-                    </div>
-                </div>
-                <a href="#" class="text-gray-800 hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium">Contact Information</a>
-                <button id="dark-mode-toggle-mobile" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Dark Mode</button>
-            </div>
-        </div>
+        <!-- Navigation content here -->
+        <!-- ... -->
     </nav>
+
+    <!-- Content Container -->
     <div class="container mx-auto px-4 py-8">
+        <!-- User Profile Header -->
         <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+            <!-- User Profile Info -->
             <div class="flex items-center mb-4 md:mb-0">
+                <!-- User Profile Image -->
                 <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
                     <img src="profile-image.jpg" alt="Profile Image" class="w-full h-full object-cover object-center">
                 </div>
+                <!-- User Profile Details -->
                 <div>
                     <h1 class="text-3xl font-bold">John Doe</h1>
                     <p class="text-xl text-gray-600">Web Developer</p>
                 </div>
             </div>
+            <!-- Dark Mode Toggle Button -->
             <button id="dark-mode-toggle" class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Dark Mode</button>
         </div>
+
+        <!-- Main Content Sections -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- About Me Section -->
             <div class="col-span-2">
-                <div class="bg-white rounded-md shadow-md p-8">
+                <div id="about" class="bg-white rounded-md shadow-md p-8">
                     <h2 class="text-2xl font-bold mb-4">About Me</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">I'm a web developer passionate about creating interactive web applications. Let's connect and collaborate!</p>
-                    <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Edit Bio</button>
+                    <p class="text-gray-600">I'm a web developer passionate about creating interactive web applications. Let's connect and collaborate!</p>
                 </div>
-                <div class="bg-white rounded-md shadow-md p-8 mt-8">
-                    <h2 class="text-2xl font-bold mb-4">Skills & Experience</h2>
+                <!-- Posts Section -->
+                <div id="posts" class="bg-white rounded-md shadow-md p-8 mt-8">
+                    <h2 class="text-2xl font-bold mb-4">Posts</h2>
                     <ul class="list-disc list-inside">
-                        <li class="mb-2">Web Development</li>
-                        <li class="mb-2">JavaScript</li>
-                        <li class="mb-2">React</li>
-                        <li class="mb-2">Node.js</li>
-                        <li class="mb-2">MySQL</li>
-                        <li>Agile Development</li>
+                        <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                        <li><a href="#">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a></li>
+                        <li><a href="#">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</a></li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-md shadow-md p-8 mt-8">
-                    <h2 class="text-2xl font-bold mb-4">Education & Certifications</h2>
-                    <ul class="list-disc list-inside">
-                        <li class="mb-2">Bachelor's Degree in Computer Science</li>
-                        <li class="mb-2">Certified Scrum Master</li>
-                        <li>Google Analytics Certification</li>
-                    </ul>
-                </div>
-                <div class="bg-white rounded-md shadow-md p-8 mt-8">
-                    <h2 class="text-2xl font-bold mb-4">Portfolio</h2>
-                    <div class="flex flex-col space-y-4">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-16 h-16 rounded-full overflow-hidden">
-                                <img src="project-image-1.jpg" alt="Project Image" class="w-full h-full object-cover object-center">
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold">Project 1</h3>
-                                <p class="text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel bibendum bibendum, sapien velit bibendum sapien, vel bibendum sapien velit bibendum sapien.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-16 h-16 rounded-full overflow-hidden">
-                                <img src="project-image-2.jpg" alt="Project Image" class="w-full h-full object-cover object-center">
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold">Project 2</h3>
-                                <p class="text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel bibendum bibendum, sapien velit bibendum sapien, vel bibendum sapien velit bibendum sapien.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-md shadow-md p-8 mt-8">
-                    <h2 class="text-2xl font-bold mb-4">Social Media</h2>
-                    <ul class="list-disc list-inside">
-                        <li class="mb-2"><a href="#">LinkedIn</a></li>
-                        <li class="mb-2"><a href="#">Twitter</a></li>
-                        <li><a href="#">GitHub</a></li>
-                    </ul>
-                </div>
-                <div class="bg-white rounded-md shadow-md p-8 mt-8">
-                    <h2 class="text-2xl font-bold mb-4">Contact Me</h2>
-                    <form>
+            </div>
+            <!-- Contact Information and Skills Section -->
+            <div class="col-span-1">
+                <div id="contact" class="bg-white rounded-md shadow-md p-8">
+                    <h2 class="text-2xl font-bold mb-4">Contact Information</h2>
+                    <form id="edit-form">
                         <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Name:</label>
+                            <input type="text" id="name" name="name" class="border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="John Doe">
                         </div>
                         <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email:</label>
+                            <input type="email" id="email" name="email" class="border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="johndoe@gmail.com">
                         </div>
                         <div class="mb-4">
-                            <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
-                            <textarea id="message" name="message" class="w-full px-4 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                            <label for="phone" class="block text-gray-700 font-bold mb-2">Phone:</label>
+                            <input type="tel" id="phone" name="phone" class="border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="(123) 456-7890">
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Save</button>
+                            <button type="button" id="cancel-button" class="ml-4 px-4 py-2 bg-gray-300 text-gray-700 rounded-md shadow-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2">Cancel</button>
                         </div>
                     </form>
                 </div>
+                <!-- Skills Section -->
+                <div class="bg-white rounded-md shadow-md p-8 mt-8">
+                    <h2 class="text-2xl font-bold mb-4">Skills</h2>
+                    <ul class="list-disc list-inside">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
             </div>
         </div>
+
+        <!-- Friends or Followers Section -->
+        <div class="bg-white rounded-md shadow-md p-8 mt-8">
+            <h2 class="text-2xl font-bold mb-4">Friends</h2>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <li><img src="friend1.jpg" alt="Friend 1"></li>
+                <li><img src="friend2.jpg" alt="Friend 2"></li>
+                <li><img src="friend3.jpg" alt="Friend 3"></li>
+                <li><img src="friend4.jpg" alt="Friend 4"></li>
+                <li><img src="friend5.jpg" alt="Friend 5"></li>
+                <li><img src="friend6.jpg" alt="Friend 6"></li>
+                <li><img src="friend7.jpg" alt="Friend 7"></li>
+                <li><img src="friend8.jpg" alt="Friend 8"></li>
+            </ul>
+        </div>
+
+        <!-- Photos or Albums Section -->
+        <div class="bg-white rounded-md shadow-md p-8 mt-8">
+            <h2 class="text-2xl font-bold mb-4">Photos</h2>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <li><img src="photo1.jpg" alt="Photo 1"></li>
+                <li><img src="photo2.jpg" alt="Photo 2"></li>
+                <li><img src="photo3.jpg" alt="Photo 3"></li>
+                <li><img src="photo4.jpg" alt="Photo 4"></li>
+                <li><img src="photo5.jpg" alt="Photo 5"></li>
+                <li><img src="photo6.jpg" alt="Photo 6"></li>
+                <li><img src="photo7.jpg" alt="Photo 7"></li>
+                <li><img src="photo8.jpg" alt="Photo 8"></li>
+            </ul>
+        </div>
+
+        <!-- Videos or Playlists Section -->
+        <div class="bg-white rounded-md shadow-md p-8 mt-8">
+            <h2 class="text-2xl font-bold mb-4">Videos</h2>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <li><img src="video1.jpg" alt="Video 1"></li>
+                <li><img src="video2.jpg" alt="Video 2"></li>
+                <li><img src="video3.jpg" alt="Video 3"></li>
+                <li><img src="video4.jpg" alt="Video 4"></li>
+                <li><img src="video5.jpg" alt="Video 5"></li>
+                <li><img src="video6.jpg" alt="Video 6"></li>
+                <li><img src="video7.jpg" alt="Video 7"></li>
+                <li><img src="video8.jpg" alt="Video 8"></li>
+            </ul>
+        </div>
+
+        <!-- Groups or Communities Section -->
+        <div class="bg-white rounded-md shadow-md p-8 mt-8">
+            <h2 class="text-2xl font-bold mb-4">Groups</h2>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <li><img src="group1.jpg" alt="Group 1"></li>
+                <li><img src="group2.jpg" alt="Group 2"></li>
+                <li><img src="group3.jpg" alt="Group 3"></li>
+                <li><img src="group4.jpg" alt="Group 4"></li>
+                <li><img src="group5.jpg" alt="Group 5"></li>
+                <li><img src="group6.jpg" alt="Group 6"></li>
+                <li><img src="group7.jpg" alt="Group 7"></li>
+                <li><img src="group8.jpg" alt="Group 8"></li>
+            </ul>
+        </div>
+
+        <!-- Events or Calendar Section -->
+        <div class="bg-white rounded-md shadow-md p-8 mt-8">
+            <h2 class="text-2xl font-bold mb-4">Events</h2>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <li><img src="event1.jpg" alt="Event 1"></li>
+                <li><img src="event2.jpg" alt="Event 2"></li>
+                <li><img src="event3.jpg" alt="Event 3"></li>
+                <li><img src="event4.jpg" alt="Event 4"></li>
+                <li><img src="event5.jpg" alt="Event 5"></li>
+                <li><img src="event6.jpg" alt="Event 6"></li>
+                <li><img src="event7.jpg" alt="Event 7"></li>
+                <li><img src="event8.jpg" alt="Event 8"></li>
+            </ul>
+        </div>
+    
+        <!-- Settings or Account Information Section -->
+        <div class="bg-white rounded-md shadow-md p-8 mt-8">
+            <h2 class="text-2xl font-bold mb-4">Settings</h2>
+            <ul class="list-disc list-inside">
+                <li><span class="font-bold">Email Notifications:</span> On</li>
+                <li><span class="font-bold">Privacy Settings:</span> Public</li>
+                <li><span class="font-bold">Account Type:</span> Premium</li>
+            </ul>
+        </div>
     </div>
+    
+    <!-- JavaScript for Dark Mode Toggle -->
     <script>
         const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const darkModeToggleMobile = document.getElementById('dark-mode-toggle-mobile');
-        const body = document.querySelector('body');
-
+        const body = document.body;
+    
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark');
         });
-
-        darkModeToggleMobile.addEventListener('click', () => {
-            body.classList.toggle('dark');
+    
+        // JavaScript to toggle edit form
+        const editForm = document.getElementById('edit-form');
+        const cancelButton = document.getElementById('cancel-button');
+    
+        cancelButton.addEventListener('click', () => {
+            editForm.style.display = 'none';
         });
     </script>
-</body>
-</html>
+    

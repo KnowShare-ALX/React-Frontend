@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+<title>Responsive Video Library</title>
+<style>
+/* Custom CSS for hover effects */
+.video-card:hover .overlay {
+opacity: 1;
+}
+
+.video-card:hover .play-button {
+opacity: 1;
+}
+
+/* Modal Styles */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0, 0, 0, 0.8);
+z-index: 999;
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+background-color: #fff;
+border-radius: 8px;
+padding: 20px;
+max-width: 80%;
+text-align: center;
+}
+</style>
+</head>
+<body class="bg-gray-100">
+<!-- Navigation Bar -->
+<nav class="bg-blue-500 py-4 text-white">
+<div class="container mx-auto flex justify-between items-center">
+<h1 class="text-2xl font-semibold">Video Library</h1>
+<ul class="hidden sm:flex space-x-4">
+<li><a href="#" class="hover:underline">Home</a></li>
+<li><a href="#" class="hover:underline">Trending</a></li>
+<li><a href="#" class="hover:underline">Popular</a></li>
+<li><a href="#" class="hover:underline">Categories</a></li>
+</ul>
+<div class="sm:hidden">
+<button id="mobile-menu" class="text-white hover:text-gray-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+</svg>
+</button>
+</div>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu-dropdown" class="hidden bg-white sm:hidden">
+<ul class="py-2 px-4 space-y-2">
+<li><a href="#" class="block text-blue-500 font-semibold hover:underline">Home</a></li>
+<li><a href="#" class="block text-blue-500 font-semibold hover:underline">Trending</a></li>
+<li><a href="#" class="block text-blue-500 font-semibold hover:underline">Popular</a></li>
+<li><a href="#" class="block text-blue-500 font-semibold hover:underline">Categories</a></li>
+</ul>
+</div>
+
+<!-- Video Card Grid -->
+<div class="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+<!-- Video Card 1 -->
+<div class="video-card relative group overflow-hidden bg-white rounded-lg shadow-md transition-transform transform hover:scale-105">
+<div class="video-thumbnail">
+<img src="https://via.placeholder.com/400x225" alt="Video Thumbnail 1">
+</div>
+<div class="overlay absolute inset-0 bg-black opacity-0 flex items-center justify-center text-white transition-opacity duration-300">
+<span class="text-xl font-semibold">Watch Now</span>
+</div>
+<div class="play-button absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 20 20" fill="currentColor">
+<path d="M5 3a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm6 0a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm5 3a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1z"/>
+</svg>
+</div>
+<div class="video-info p-4">
+<h3 class="text-lg font-semibold">Video Title 1</h3>
+<p class="text-gray-600">Video description goes here.</p>
+</div>
+</div>
+
+<!-- Video Card 2 -->
+<div class="video-card relative group overflow-hidden rounded-lg">
+<div class="video-thumbnail">
+<img src="https://via.placeholder.com/400x225" alt="Video Thumbnail 2">
+</div>
+<div class="overlay absolute inset-0 bg-black opacity-0 flex items-center justify-center text-white transition-opacity duration-300">
+<span class="text-xl font-semibold">Watch Now</span>
+</div>
+<div class="play-button absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 20 20" fill="currentColor">
+<path d="M5 3a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm6 0a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm5 3a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1z"/>
+</svg>
+</div>
+<div class="video-info p-4">
+<h3 class="text-lg font-semibold">Video Title 2</h3>
+<p class="text-gray-600">Video description goes here.</p>
+</div>
+</div>
+
+<!-- Video Card 3 -->
+<div class="video-card relative group overflow-hidden rounded-lg">
+<div class="video-thumbnail">
+<img src="https://via.placeholder.com/400x225" alt="Video Thumbnail 3">
+</div>
+<div class="overlay absolute inset-0 bg-black opacity-0 flex items-center justify-center text-white transition-opacity duration-300">
+<span class="text-xl font-semibold">Watch Now</span>
+</div>
+<div class="play-button absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 20 20" fill="currentColor">
+<path d="M5 3a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm6 0a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm5 3a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1z"/>
+</svg>
+</div>
+<div class="video-info p-4">
+<h3 class="text-lg font-semibold">Video Title 3</h3>
+<p class="text-gray-600">Video description goes here.</p>
+</div>
+</div>
+
+<!-- Video Card 4 -->
+<div class="video-card relative group overflow-hidden rounded-lg">
+<div class="video-thumbnail">
+<img src="https://via.placeholder.com/400x225" alt="Video Thumbnail 4">
+</div>
+<div class="overlay absolute inset-0 bg-black opacity-0 flex items-center justify-center text-white transition-opacity duration-300">
+<span class="text-xl font-semibold">Watch Now</span>
+</div>
+<div class="play-button absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 20 20" fill="currentColor">
+<path d="M5 3a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm6 0a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm5 3a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1z"/>
+</svg>
+</div>
+<div class="video-info p-4">
+<h3 class="text-lg font-semibold">Video Title 4</h3>
+<p class="text-gray-600">Video description goes here.</p>
+</div>
+</div>
+
+<!-- Video Card 5 -->
+<div class="video-card relative group overflow-hidden rounded-lg">
+<div class="video-thumbnail">
+<img src="https://via.placeholder.com/400x225" alt="Video Thumbnail 5">
+</div>
+<div class="overlay absolute inset-0 bg-black opacity-0 flex items-center justify-center text-white transition-opacity duration-300">
+<span class="text-xl font-semibold">Watch Now</span>
+</div>
+<div class="play-button absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 20 20" fill="currentColor">
+<path d="M5 3a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm6 0a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm5 3a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1z"/>
+</svg>
+</div>
+<div class="video-info p-4">
+<h3 class="text-lg font-semibold">Video Title 5</h3>
+<p class="text-gray-600">Video description goes here.</p>
+</div>
+</div>
+
+<!-- Video Card 6 -->
+<div class="video-card relative group overflow-hidden rounded-lg">
+<div class="video-thumbnail">
+<img src="https://via.placeholder.com/400x225" alt="Video Thumbnail 6">
+</div>
+<div class="overlay absolute inset-0 bg-black opacity-0 flex items-center justify-center text-white transition-opacity duration-300">
+<span class="text-xl font-semibold">Watch Now</span>
+</div>
+<div class="play-button absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 20 20" fill="currentColor">
+<path d="M5 3a2 2 0 012 2v10a2 2 0 11-4 0V5a2 2 0 012-2zm6 0a2 2 0 0120V5a2 2 0 01-2-2h-6a2 2 0 01-2 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm1 10h4V7h-4v6z"/>
+</svg>
+</div>
+<div class="video-info p-4">
+<h3 class="text-lg font-semibold">Video Title 6</h3>
+<p class="text-gray-600">Video description goes here.</p>
+</div>
+</div>
+
+<!-- Add more video cards as needed -->
+</div>
+
+<!-- Modal for playing videos -->
+<div id="video-modal" class="modal">
+<div class="modal-content">
+<!-- Embed video here (e.g., YouTube embed code) -->
+<!-- Example YouTube Embed Code -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+<button id="close-modal" class="mt-4 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-700">Close</button>
+</div>
+</div>
+
+<script>
+// JavaScript to handle modal
+const videoCards = document.querySelectorAll('.video-card');
+const videoModal = document.getElementById('video-modal');
+const closeModalButton = document.getElementById('close-modal');
+const mobileMenuButton = document.getElementById('mobile-menu');
+const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+
+videoCards.forEach((card) => {
+card.addEventListener('click', () => {
+videoModal.style.display = 'block';
+});
+});
+
+closeModalButton.addEventListener('click', () => {
+videoModal.style.display = 'none';
+});
+
+mobileMenuButton.addEventListener('click', () => {
+mobileMenuDropdown.classList.toggle('hidden');
+});
+
+// Close modal if user clicks outside the modal
+window.addEventListener('click', (event) => {
+if (event.target === videoModal) {
+videoModal.style.display = 'none';
+}
+});
+</script>
+</body>
+</html>

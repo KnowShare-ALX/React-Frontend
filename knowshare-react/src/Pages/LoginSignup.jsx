@@ -11,7 +11,11 @@ import useAppHook from "../hooks/useAppHook";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [selectedTab, setSelectedTab] = useState("Login");
+
+  console.log("selectedTab", selectedTab);
+
   const { getProfile } = useAppHook();
 
   const [errors, setErrors] = useState({});
@@ -91,6 +95,7 @@ const Login = () => {
       password: values.password,
     };
     const result = await AuthService.login(data);
+    console.log("result", result);
     if (result.data.token) {
       localStorage.setItem("token", result.data.token);
       actions.setSubmitting(false);

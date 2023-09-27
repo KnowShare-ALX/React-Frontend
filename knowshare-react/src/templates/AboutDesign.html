@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowShare - Knowledge Sharing Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional styles for the body */
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Make the navbar links underline on hover */
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style the "About" and "Features" sections */
+        .section-title {
+            color: #333;
+        }
+
+        /* Add padding and margin to section content */
+        .section-content {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        /* Additional styles for responsiveness */
+        @media (max-width: 640px) {
+            .text-hero {
+                font-size: 2rem;
+            }
+            .navbar {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .navbar li {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <div class="text-white font-bold text-2xl">
+                    KnowShare
+                </div>
+                <ul class="flex space-x-6 navbar">
+                    <li><a href="#" class="text-white hover:text-blue-300">Home</a></li>
+                    <li><a href="#about" class="text-white hover:text-blue-300">About</a></li>
+                    <li><a href="#features" class="text-white hover:text-blue-300">Features</a></li>
+                    <li><a href="#" class="text-white hover:text-blue-300">Blog</a></li>
+                    <li><a href="#" class="text-white hover:text-blue-300">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-hero font-bold mb-4">Welcome to KnowShare</h1>
+        <p class="text-gray-700">KnowShare is a cutting-edge social media platform with a unique focus on knowledge sharing and active learning. Our team comprises highly skilled developers with expertise in both frontend and backend technologies.</p>
+
+        <p class="mt-4 text-gray-700">KnowShare is designed to foster a vibrant community of learners and educators. Users can easily create and access educational content across various domains. What sets KnowShare apart is its capability to allow content creators to monetize their expertise, turning their passion into a rewarding experience. Our platform aims to bridge the gap between those seeking knowledge and those willing to share it.</p>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="bg-gray-100 py-16">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-4 section-title">About KnowShare</h2>
+            <p class="text-gray-700 section-content">At KnowShare, we believe in the power of sharing knowledge. Our platform is designed to provide a space where learners and educators can come together to exchange ideas, insights, and expertise. Whether you're a lifelong learner or an experienced educator, KnowShare is here to support your journey.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-white py-16">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-4 section-title">Key Features</h2>
+            <ul class="list-disc list-inside text-gray-700 section-content">
+                <li>Access a wide range of educational content across various domains.</li>
+                <li>Create and share your own educational content with our user-friendly tools.</li>
+                <li>Monetize your expertise and passion for teaching.</li>
+                <li>Connect with a community of learners and educators from around the world.</li>
+                <li>Bridge the gap between knowledge seekers and knowledge providers.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Your content goes here -->
+
+</body>
+</html>

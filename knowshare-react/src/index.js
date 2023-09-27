@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 import TutorDashboard from "./Pages/Dashboard";
+import About from "./Pages/About";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <TutorDashboard />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
 ]);
 

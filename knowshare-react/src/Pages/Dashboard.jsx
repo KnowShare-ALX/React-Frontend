@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 // import Profile from "@/components/influencer/Profile";
@@ -20,8 +20,11 @@ import SideNav from "../components/layout/shared/SideNav";
 import Profile from "../components/layout/shared/Profile";
 import Feeds from "../components/layout/shared/Feeds";
 import CreateTutorial from "../components/layout/shared/CreateTutorial";
+import { useLocation } from "react-router-dom";
 
 const TutorDashboard = () => {
+  const location = useLocation();
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState("Home");
 
@@ -80,6 +83,15 @@ const TutorDashboard = () => {
     default:
       componentToRender = null;
   }
+
+  useEffect(() => {
+    // Check if the URL contains "upload=successfull"
+    if (location.search.includes("upload=successfull")) {
+      // Set selectedComponent to "Videos" when the condition is met
+      setSelectedComponent("Videos");
+    }
+  }, [location.search]);
+
   return (
     <div className="relative overflow-x-hidden">
       <div className="flex min-h-screen lg:h-screen">
@@ -89,7 +101,6 @@ const TutorDashboard = () => {
             onClick={(component) => setSelectedComponent(component)}
             isOpen={sidenavOpen}
             type="influencer"
-            // hasSelected={selected}
           />
         </div>
         {/* Rendered Component */}

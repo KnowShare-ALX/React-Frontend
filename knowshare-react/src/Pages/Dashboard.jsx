@@ -19,6 +19,7 @@ import Settings from "../components/layout/shared/Settings";
 import SideNav from "../components/layout/shared/SideNav";
 import Profile from "../components/layout/shared/Profile";
 import Feeds from "../components/layout/shared/Feeds";
+import CreateTutorial from "../components/layout/shared/CreateTutorial";
 
 const TutorDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -66,6 +67,10 @@ const TutorDashboard = () => {
 
     case "Feeds":
       componentToRender = <Feeds />;
+      break;
+
+    case "Create":
+      componentToRender = <CreateTutorial />;
       break;
 
     case "Logout":

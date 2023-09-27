@@ -21,7 +21,7 @@ const Dashboard = ({ onClick }) => {
           label=""
           icon={<RiCrossFill className="w-5 h-5" />}
           text="Create a New Tutorial"
-          onClick={() => handleClick("Messages")}
+          onClick={() => handleClick("Create")}
         />
         <CardDashboard
           label="Notifications"

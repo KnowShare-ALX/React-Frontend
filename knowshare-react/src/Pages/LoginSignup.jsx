@@ -7,20 +7,14 @@ import AuthService from "../services/authService";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { setUserEmail } from "../redux/auth";
+import useAppHook from "../hooks/useAppHook";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedTab, setSelectedTab] = useState("Login");
-
-  const { userEmail } = useSelector((state) => {
-    const { userEmail } = state.auth;
-    return { userEmail };
-  }, shallowEqual);
-
-  console.log("userEmail", userEmail);
+  const { getProfile } = useAppHook();
 
   const [errors, setErrors] = useState({});
-  const [user, setUser] = useState({});
 
   const [loginFormValues, setLoginFormValues] = useState({
     email: "",
@@ -102,6 +96,7 @@ const Login = () => {
       actions.setSubmitting(false);
       dispatch(setUserEmail(values.email));
       console.log("login successfull");
+      await getProfile(values.email);
       navigate("/dashboard");
     }
   };

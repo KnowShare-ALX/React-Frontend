@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AppLayout } from "./components/layout";
 import Profile from "./Profile";
@@ -13,6 +12,7 @@ import Login from "./Pages/LoginSignup";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
+import TutorDashboard from "./Pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -25,16 +25,16 @@ const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-    path: "/dashboard",
-    element: <CreatorDashboard />,
-  },
-  {
     path: "/login",
     element: <Login />,
   },
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/dashboard",
+    element: <TutorDashboard />,
   },
 ]);
 

@@ -4,17 +4,18 @@ import * as React from "react";
 import Nav from "./Atoms/Nav";
 import Logo from "./common/Logo";
 import { HiMenuAlt2, HiOutlineUserCircle } from "react-icons/hi";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { CiUser } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import ButtonSolid from "./Atoms/ButtonSolid";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import AuthService from "../../services/authService";
-import { setUserEmail } from "../../redux/auth";
+import { setSidenavOpen, setUserEmail } from "../../redux/auth";
 
 const Navbar = () => {
-  const { userEmail } = useSelector((state) => {
-    const { userEmail } = state.auth;
-    return { userEmail };
+  const { userEmail, sidenavOpen } = useSelector((state) => {
+    const { userEmail, sidenavOpen } = state.auth;
+    return { userEmail, sidenavOpen };
   }, shallowEqual);
 
   const dispatch = useDispatch();
@@ -51,15 +52,25 @@ const Navbar = () => {
     // window.location.href = "/";
   };
 
+  console.log("sidenavOpen", sidenavOpen);
+
   return (
     <div className={`${open ? " " : "shadow"} w-full z-50 `}>
       <div className="flex items-center lg:px-[5rem] p-1 justify-between xl:mx-auto xl:max-w-7xl max-w-full flex-wrap w-full">
-        <a href="/">
-          {" "}
-          <div className="ml-16 lg:ml-10 flex justify-center w-[3rem] transition duration-500 ease-in-out delay-150 hover:scale-110 hover:translate-y-0.5">
-            <Logo />
+        <div className="flex items-center">
+          <div className="lg:hidden p-2 ">
+            <AiOutlineMenuUnfold
+              className="w-6 h-6 text-[#0f7173]"
+              onClick={() => dispatch(setSidenavOpen(!sidenavOpen))}
+            />
           </div>
-        </a>
+          <a href="/">
+            {" "}
+            <div className="ml-16 lg:ml-10 flex justify-center w-[3rem] transition duration-500 ease-in-out delay-150 hover:scale-110 hover:translate-y-0.5">
+              <Logo />
+            </div>
+          </a>
+        </div>
         <HiMenuAlt2
           className={`${
             open ? "rotate-90 ease-in delay-150" : ""

@@ -96,21 +96,14 @@ const Login = () => {
       email: values.email,
       password: values.password,
     };
-    console.log("data", data);
-    // try {
     const result = await AuthService.login(data);
     if (result.data.token) {
       localStorage.setItem("token", result.data.token);
       actions.setSubmitting(false);
       dispatch(setUserEmail(values.email));
       console.log("login successfull");
-      navigate("/");
+      navigate("/dashboard");
     }
-    // } catch (ex) {
-    //   const error = { ...errors };
-    //   error.email = ex.response.data.error;
-    //   setErrors(error);
-    // }
   };
 
   return (

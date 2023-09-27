@@ -8,7 +8,7 @@ import authReducer from "./auth";
 const persistConfig = {
   key: "root", // Change this to a unique key for your app
   storage,
-  whitelist: ["userEmail"], // List the reducers you want to persist
+  whitelist: ["userEmail", "userData"], // List the reducers you want to persist
 };
 
 const persistedReducer = persistReducer(persistConfig, authReducer);

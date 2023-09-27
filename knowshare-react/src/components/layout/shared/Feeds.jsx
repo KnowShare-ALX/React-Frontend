@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const dummyFeedsData = [
   {
@@ -14,6 +15,19 @@ const dummyFeedsData = [
   // Add more dummy posts
 ];
 
+const Feed = ({ id, username, content }) => (
+  <div key={id} className="bg-white p-4 rounded-lg shadow-md">
+    <div className="text-gray-500 mb-2">@{username}</div>
+    <p className="text-gray-800">{content}</p>
+  </div>
+);
+
+Feed.propTypes = {
+  id: PropTypes.number.isRequired,
+  username: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
+
 const Feeds = () => {
   const [feeds, setFeeds] = useState(dummyFeedsData);
 
@@ -22,10 +36,7 @@ const Feeds = () => {
       <h2 className="text-2xl font-bold mb-4">Feeds</h2>
       <div className="space-y-4">
         {feeds.map((feed) => (
-          <div key={feed.id} className="bg-white p-4 rounded-lg shadow">
-            <div className="text-gray-500 mb-2">@{feed.username}</div>
-            <p>{feed.content}</p>
-          </div>
+          <Feed key={feed.id} {...feed} />
         ))}
       </div>
     </div>

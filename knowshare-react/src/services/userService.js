@@ -68,10 +68,27 @@ export async function uploadContent(data) {
   }
 }
 
+export async function createCourse(data) {
+  const token = localStorage.getItem(tokenKey);
+  const headers = {
+    "Content-Type": "application/json",
+
+    Authorization: `Bearer ${token}`,
+  };
+  if (token) {
+    return http.post(`${apiEndPoint}/courses/create`, data, {
+      headers,
+    });
+  } else {
+    return Promise.resolve();
+  }
+}
+
 export default {
   getProfile,
   saveProfilePhoto,
   getProfilePicture,
   updateProfile,
   uploadContent,
+  createCourse,
 };

@@ -6,8 +6,10 @@ import { TbWorldWww } from "react-icons/tb";
 import { HiSpeakerphone } from "react-icons/hi";
 import { AiFillEdit } from "react-icons/ai";
 import { MdManageAccounts } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Category = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col lg:flex-row justify-around items-center p-4">
       <div className="flex lg:self-start  flex-col items-center justify-center lg:items-start max-w-[30rem] py-4 gap-8 lg:gap-12">
@@ -17,7 +19,12 @@ const Category = () => {
           error id explicabo facere unde culpa, sit in ad voluptatem nobis neque
           provident esse sunt tempore perferendis eveniet illo. Quia.
         </span>
-        <ButtonSolid label="Learn More" />
+        <ButtonSolid
+          onClick={() => {
+            navigate("/blog/home");
+          }}
+          label="Learn More"
+        />
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-[40rem]">

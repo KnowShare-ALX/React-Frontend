@@ -14,6 +14,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 import TutorDashboard from "./Pages/Dashboard";
 import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Blog from "./Pages/Blog";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +44,14 @@ const router = createBrowserRouter([
     path: "/about",
     element: <About />,
   },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/blog/home",
+    element: <Blog />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -48,6 +59,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <Toaster position="top-right" reverseOrder={false} />
         <AppLayout>
           <RouterProvider router={router} />
         </AppLayout>

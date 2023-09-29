@@ -18,13 +18,13 @@ const Feeds = () => {
   const [feeds, setFeeds] = useState(dummyFeedsData);
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Feeds</h2>
-      <div className="space-y-4">
+    <div className="container p-4">
+      <h2 className="display-4 font-weight-bold mb-4">Feeds</h2>
+      <div className="list-group">
         {feeds.map((feed) => (
-          <div key={feed.id} className="bg-white p-4 rounded-lg shadow">
-            <div className="text-gray-500 mb-2">@{feed.username}</div>
-            <p>{feed.content}</p>
+          <div key={feed.id} className="list-group-item list-group-item-action mb-2">
+            <div className="text-muted mb-2">@{feed.username}</div>
+            <p className="mb-0">{feed.content}</p>
           </div>
         ))}
       </div>

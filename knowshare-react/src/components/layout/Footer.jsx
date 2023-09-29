@@ -35,7 +35,7 @@ const Footer = () => {
     {
       id: 4,
       name: "Sign Up",
-      link: "register",
+      link: "/login",
     },
     {
       id: 5,

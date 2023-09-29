@@ -5,13 +5,15 @@ import { RiMessage3Fill } from "react-icons/ri";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { BiSolidVideos } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { setUserEmail } from "../../../redux/auth";
+import { setUserData, setUserEmail } from "../../../redux/auth";
 import authService from "../../../services/authService";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const SideNav = ({ isOpen, onClick, hasSelected, type }) => {
   const [selected, setSelected] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = (index, component) => {
     setSelected(index);
@@ -25,7 +27,8 @@ const SideNav = ({ isOpen, onClick, hasSelected, type }) => {
     await authService.logout();
     toast.info("Logged Out Successfully");
     dispatch(setUserEmail(null));
-    window.location.href = "/";
+    dispatch(setUserData(null));
+    navigate("/");
   };
 
   return (

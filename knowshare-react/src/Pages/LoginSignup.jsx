@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonSolid from "../components/layout/Atoms/ButtonSolid";
 import Logo from "../components/layout/common/Logo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -8,11 +8,18 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { setUserEmail } from "../redux/auth";
 import useAppHook from "../hooks/useAppHook";
+import toast from "react-hot-toast";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const { userData } = useSelector((state) => {
+    const { userData } = state.auth;
+    return { userData };
+  });
+
   const [selectedTab, setSelectedTab] = useState("Login");
+  const [loading, setLoading] = useState(false);
 
   console.log("selectedTab", selectedTab);
 
@@ -73,6 +80,7 @@ const Login = () => {
   };
 
   const handleSignup = async (values, actions) => {
+    setLoading(true);
     const data = {
       email: values.email,
       password: values.password,
@@ -81,30 +89,39 @@ const Login = () => {
     };
 
     const result = await AuthService.signup(data);
-
+    toast.success("Account created successfully");
+    navigate("/dashboard");
     console.log("result", result);
     // Add signup logic here (e.g., validate input and create a new user account)
 
     // Call actions.setSubmitting(false) to indicate that form submission is complete
     actions.setSubmitting(false);
+    setLoading(false);
   };
 
   const handleLogin = async (values, actions) => {
+    setLoading(true);
     const data = {
       email: values.email,
       password: values.password,
     };
     const result = await AuthService.login(data);
-    console.log("result", result);
     if (result.data.token) {
       localStorage.setItem("token", result.data.token);
       actions.setSubmitting(false);
       dispatch(setUserEmail(values.email));
-      console.log("login successfull");
       await getProfile(values.email);
+      toast.success("login successfull");
+      setLoading(false);
       navigate("/dashboard");
     }
   };
+
+  useEffect(() => {
+    if (userData) {
+      navigate("/dashboard");
+    }
+  }, [userData]);
 
   return (
     <>
@@ -232,7 +249,11 @@ const Login = () => {
                   >
                     Sign in
                   </button> */}
-                    <ButtonSolid type="submit" label="Login" />
+                    <ButtonSolid
+                      loading={loading}
+                      type="submit"
+                      label={loading ? "Processing..." : "Login"}
+                    />
                   </div>
                 </Form>
               </Formik>
@@ -339,7 +360,11 @@ const Login = () => {
               >
                 Sign up
               </button> */}
-                      <ButtonSolid type="submit" label="Sign Up" />
+                      <ButtonSolid
+                        loading={loading}
+                        type="submit"
+                        label={loading ? "Processing..." : "Sign Up"}
+                      />
                     </div>
                     <div
                       onClick={() => handleTabChange("Login")}

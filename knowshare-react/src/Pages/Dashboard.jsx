@@ -11,8 +11,7 @@ import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
 import AuthService from "../services/authService";
-import { setUserEmail } from "../redux/auth";
-import { toast } from "react-toastify";
+import { setUserData, setUserEmail } from "../redux/auth";
 import VideoLibrary from "../components/layout/shared/VideoLibrary";
 import Dashboard from "../components/layout/shared/Dashboard";
 import Settings from "../components/layout/shared/Settings";
@@ -20,7 +19,8 @@ import SideNav from "../components/layout/shared/SideNav";
 import Profile from "../components/layout/shared/Profile";
 import Feeds from "../components/layout/shared/Feeds";
 import CreateTutorial from "../components/layout/shared/CreateTutorial";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const TutorDashboard = () => {
   const location = useLocation();
@@ -28,12 +28,13 @@ const TutorDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState("Home");
 
-  const { sidenavOpen } = useSelector((state) => {
-    const { sidenavOpen } = state.auth;
-    return { sidenavOpen };
+  const { sidenavOpen, userData } = useSelector((state) => {
+    const { sidenavOpen, userData } = state.auth;
+    return { sidenavOpen, userData };
   }, shallowEqual);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Handles SideBar Toggle
   const handleToggle = () => {
@@ -45,7 +46,9 @@ const TutorDashboard = () => {
   const handleLogout = async () => {
     await AuthService.logout();
     dispatch(setUserEmail(null));
-    toast.info("Logged Out Successfully");
+    dispatch(setUserData(null));
+    toast.success("Logged Out");
+    navigate("/");
     // window.location.href = "/";
   };
 
@@ -91,6 +94,12 @@ const TutorDashboard = () => {
       setSelectedComponent("Videos");
     }
   }, [location.search]);
+
+  useEffect(() => {
+    if (!userData) {
+      navigate("/");
+    }
+  }, [userData]);
 
   return (
     <div className="relative overflow-x-hidden">

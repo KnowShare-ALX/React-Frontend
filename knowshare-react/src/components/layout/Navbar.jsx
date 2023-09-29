@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 import ButtonSolid from "./Atoms/ButtonSolid";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import AuthService from "../../services/authService";
-import { setSidenavOpen, setUserEmail } from "../../redux/auth";
+import { setSidenavOpen, setUserData, setUserEmail } from "../../redux/auth";
 
 const Navbar = () => {
-  const { userEmail, sidenavOpen } = useSelector((state) => {
-    const { userEmail, sidenavOpen } = state.auth;
-    return { userEmail, sidenavOpen };
+  const { userEmail, sidenavOpen, userData } = useSelector((state) => {
+    const { userEmail, sidenavOpen, userData } = state.auth;
+    return { userEmail, sidenavOpen, userData };
   }, shallowEqual);
 
   const dispatch = useDispatch();
@@ -29,11 +29,7 @@ const Navbar = () => {
       item: "About",
       link: `/about`,
     },
-    {
-      id: 2,
-      item: "Pricing",
-      link: `/pricing`,
-    },
+
     {
       id: 3,
       item: "Blog",
@@ -49,7 +45,8 @@ const Navbar = () => {
   const handleLogout = async () => {
     await AuthService.logout();
     dispatch(setUserEmail(null));
-    // window.location.href = "/";
+    dispatch(setUserData(null));
+    window.location.href = "/";
   };
 
   console.log("sidenavOpen", sidenavOpen);
@@ -95,7 +92,7 @@ const Navbar = () => {
                 <Nav label={nav.item} navLink={nav.link} />
               </li>
             ))}
-            {userEmail ? (
+            {userData ? (
               <div className="flex flex-col">
                 <div className="p-1 flex flex-col justify-center items-center mx-4 rounded-full border border-black/50 w-8">
                   <CiUser
